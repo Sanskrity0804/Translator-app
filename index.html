@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hindi-English Translator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Hindi-English Translator 🌐</h2>
+        <form method="POST">
+            <textarea name="input_text" placeholder="Enter your sentence here..." required>{{ input_text }}</textarea>
+
+            <select name="direction">
+                <option value="en-hi" {% if direction == 'en-hi' %}selected{% endif %}>English to Hindi</option>
+                <option value="hi-en" {% if direction == 'hi-en' %}selected{% endif %}>Hindi to English</option>
+            </select>
+
+            <button type="submit">Translate</button>
+        </form>
+
+        <h3>Translated Text:</h3>
+        <div class="output-box">{{ translated_text }}</div>
+    </div>
+</body>
+</html>
